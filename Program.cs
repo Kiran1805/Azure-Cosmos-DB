@@ -13,11 +13,15 @@ namespace BlobFileShare
     {
         public static void Main(string[] args)
         {
+            string text = "This is a file that is created to upload into the azure cloud sharing";
             string folder = @"D:\uploadpath\";
             // Filename  
             string fileName = "downloadfile.txt";
             // Fullpath. You can direct hardcode it if you like.  
             string fullPath = folder + fileName;
+
+            System.IO.File.WriteAllText(fullPath, text);
+
             string containerName = "firstblobstoragr";
             BlobFileShare blobFileShare = new BlobFileShare();
             blobFileShare.uploadToBlob(fullPath, containerName);
